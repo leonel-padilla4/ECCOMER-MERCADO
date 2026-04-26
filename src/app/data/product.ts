@@ -1,8 +1,7 @@
 import type { Product } from '../context/CartContext';
 
 export const products: Product[] = [
-
-    {
+      {
         id: 1,
         title: 'iPhone 15 Pro Max 256GB',
         price: 1199,
@@ -10,7 +9,7 @@ export const products: Product[] = [
         image: 'https://images.unsplash.com/photo-1741061963569-9d0ef54d10d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lJTIwbW9iaWxlJTIwcGhvbmV8ZW58MXx8fHwxNzc1Mzc1MTYwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
         rating: 4.8,
         reviews: 2547,
-        category: 'Electrónica',
+        category: 'Electronica',
         description: 'El iPhone 15 Pro Max cuenta con el potente chip A17 Pro, cámara de 48MP y pantalla Super Retina XDR de 6.7 pulgadas.',
         shipping: 'free',
         condition: 'new',
@@ -24,7 +23,7 @@ export const products: Product[] = [
         image: 'https://images.unsplash.com/photo-1511385348-a52b4a160dc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBjb21wdXRlcnxlbnwxfHx8fDE3NzU0MTMwMTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
         rating: 4.9,
         reviews: 1823,
-        category: 'Electrónica',
+        category: 'Electronica',
         description: 'Laptop profesional con chip M3 Pro, 16GB RAM, 512GB SSD. Ideal para desarrollo y diseño.',
         shipping: 'free',
         condition: 'new',
@@ -85,7 +84,7 @@ export const products: Product[] = [
         image: 'https://images.unsplash.com/photo-1769603795371-ad63bd85d524?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YWJsZXQlMjBkZXZpY2V8ZW58MXx8fHwxNzc1NDA2NjQzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
         rating: 4.7,
         reviews: 2187,
-        category: 'Electrónica',
+        category: 'Electronica',
         description: 'Tablet potente con chip M2, pantalla Liquid Retina y compatible con Apple Pencil.',
         shipping: 'free',
         condition: 'new',
@@ -154,6 +153,7 @@ export const products: Product[] = [
         condition: 'new',
     },
 
+  
 ];
 
 
