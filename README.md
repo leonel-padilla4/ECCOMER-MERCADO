@@ -48,7 +48,8 @@ La aplicación se ejecutará en modo desarrollo con Vite (por defecto en `http:/
 
 ## 📸 Capturas
 
-_(agrega aquí 1-2 screenshots de la app: catálogo y carrito de compras)_
+![Uploading imagen.png…]()
+
 
 ## 👤 Autor
 
