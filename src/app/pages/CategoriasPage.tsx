@@ -1,4 +1,4 @@
-import { Funnel } from "lucide-react";
+import { Funnel, LayoutGrid } from "lucide-react";
 import { categorias, products } from "../data/product";
 import { useSearchParams } from "react-router";
 import { useMemo, useState } from "react";
@@ -28,6 +28,8 @@ export function CategoriasPage() {
   const searchQuery = searchParams.get("search") || "";
   const [SelectCategoria, setSelectCategoria] = useState(categoryFilter);
   const loading = products.length === 0;
+  const [sortBy, setSortBy] = useState("");
+  
 
   const filteredProducts = useMemo(() => {
     let filtered = [...products];
@@ -35,7 +37,7 @@ export function CategoriasPage() {
     // vamos a filtrar
     if (searchQuery) {
       filtered = filtered.filter(
-        (p) => 
+        (p) =>
           p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           p.description.toLowerCase().includes(searchQuery.toLowerCase())
       );
@@ -43,15 +45,24 @@ export function CategoriasPage() {
 
     //categoria filtrar
     if (SelectCategoria) {
-      filtered = filtered.filter((p) => 
+      filtered = filtered.filter((p) =>
         p.category.toLowerCase() === SelectCategoria.toLowerCase()
       );
     }
+
+    if (sortBy === "price-low") {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (sortBy === "price-high") {
+      filtered.sort((a, b) => b.price - a.price);
+    } else if (sortBy === "rating") {
+      filtered.sort((a, b) => b.rating - a.rating);
+    }
+
     return filtered;
-  }, [searchQuery, SelectCategoria]);
+  }, [searchQuery, SelectCategoria, sortBy]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6"> 
+    <div className="max-w-7xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-6">
         {searchQuery && (
@@ -67,8 +78,7 @@ export function CategoriasPage() {
         )}
 
         <p className="text-gray-600">
-          {filteredProducts.length} 
-          {filteredProducts.length === 1 ? "resultado" : "resultados"}
+          {filteredProducts.length} {filteredProducts.length === 1 ? "Resultado" : "Resultados"}
         </p>
       </div>
 
@@ -87,7 +97,14 @@ export function CategoriasPage() {
             <h3 className="font-semibold mb-3">Categorias</h3>
 
             <div className="space-y-2">
-              <button className="w-full text-left px-2 py-1 rounded bg-blue-100 text-blue-600 hover:bg-gray-100">
+              <button
+                onClick={() => setSelectCategoria("")}
+                className={`w-full text-left px-2 py-1 rounded flex items-center gap-2 transition-colors ${SelectCategoria === ""
+                    ? "bg-blue-100 text-blue-700 font-medium"
+                    : "hover:bg-gray-100 text-gray-700"
+                  }`}
+              >
+                <LayoutGrid className="w-4 h-4" />
                 Todas
               </button>
 
@@ -95,11 +112,10 @@ export function CategoriasPage() {
                 <button
                   key={categoria.id}
                   onClick={() => setSelectCategoria(categoria.id)}
-                  className={`w-full text-left px-2 py-1 rounded hover:bg-gray-100 ${
-                    SelectCategoria === categoria.id
+                  className={`w-full text-left px-2 py-1 rounded hover:bg-gray-100 ${SelectCategoria === categoria.id
                       ? "bg-blue-50 text-blue-600"
                       : ""
-                  }`}
+                    }`}
                 >
                   {categoria.icon} {categoria.name}
                 </button>
@@ -142,18 +158,22 @@ export function CategoriasPage() {
 
         {/* Main */}
         <div className="flex-1">
-          <div className="bg-white rounded-lg p-4 mb-6 flrx items-center justify-between">
+          <div className="bg-white rounded-lg p-4 mb-6 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <label className="text-sm text-gray-800 font-bold">
                 Ordenar Por:
               </label>
-              <select className="px-3 py-1 border rounded">
-                <option value="----" selected----></option>
-                <option value="relevance">Mas Relevante</option>
-                <option value="price-low">Menor Precio</option>
-                <option value="price-high">Mayor Precio</option>
-                <option value="rating">Mejor Calificados</option>
-              </select>
+          <select 
+  value={sortBy} 
+  onChange={(e) => setSortBy(e.target.value)}
+  className="px-3 py-1 border rounded"
+>
+  <option value="" disabled>Selecciona una opción</option>
+  <option value="relevance">Mas Relevante</option>
+  <option value="price-low">Menor Precio</option>
+  <option value="price-high">Mayor Precio</option>
+  <option value="rating">Mejor Calificados</option>
+</select>
             </div>
           </div>
 
