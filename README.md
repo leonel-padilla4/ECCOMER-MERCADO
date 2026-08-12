@@ -50,6 +50,9 @@ La aplicación se ejecutará en modo desarrollo con Vite (por defecto en `http:/
 
 <img width="1366" height="768" alt="imagen" src="https://github.com/user-attachments/assets/d5cb4c3f-ba7c-4baa-8add-b0b0fbaaad69" />
 
+<img width="1366" height="768" alt="imagen" src="https://github.com/user-attachments/assets/62e34d7a-2f5f-4d8b-919f-d242a6855207" />
+
+
 
 
 ## 👤 Autor
