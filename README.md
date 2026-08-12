@@ -9,8 +9,8 @@ Tienda en línea construida con React y TypeScript que permite explorar producto
 - Interfaz responsive con componentes reutilizables (ProductCard, Header)
   
 ## 🚧 En desarrollo
--Integración visual del carrito de compras (agregar, eliminar, actualizar cantidad y cálculo de total).
- La lógica ya está implementada con Context API (CartContext), y actualmente se está conectando a la interfaz (botones y página del carrito).
+- Integración visual del carrito de compras (agregar, eliminar, actualizar cantidad y cálculo de total).
+  La lógica ya está implementada con Context API (CartContext), y actualmente se está conectando a la interfaz (botones y página del carrito).
 
 ## 🛠️ Tecnologías utilizadas
 
